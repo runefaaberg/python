@@ -6,11 +6,14 @@ from game_data import data
 contest_A = ''
 contest_B = ''
 
+
 def get_contestant():
     return random.choice(data)
 
+
 def format_data(contestant):
     return f"{contestant["name"]}, a {contestant["description"]}, from {contestant["country"]}"
+
 
 def game():
     game_alive = True
@@ -45,6 +48,7 @@ def game():
             print(f"You're right! Current score: {score}.")
             contestant_A = contestant_B
             contestant_B = get_contestant()
+
 
 game()
 
