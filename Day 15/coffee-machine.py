@@ -58,12 +58,13 @@ def get_missing_resource(coffee_type):
         return "milk"
 
 
-choice = ''
-while choice != "stop":
+is_on = True
+
+while is_on:
     choice = input("What would you like? (espresso/latte/cappuccino): ").lower()
 
-    if choice == "stop":
-        exit()
+    if choice == "off":
+        is_on = False
     elif choice == "report":
         print_report()
     else:
@@ -82,6 +83,7 @@ while choice != "stop":
                     print(f"Here is ${change} in change.")
                 print(f"Here is your {choice}. Enjoy!")
                 reduce_resources(choice)
+                profit += menu.MENU[choice]["cost"]
             else:
                 print("Sorry that's not enough money. Money refunded.")
         else:
